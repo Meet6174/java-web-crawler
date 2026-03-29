@@ -26,7 +26,7 @@ public class CrawlerUI {
         imgBtn.setFont(new Font("Arial", Font.BOLD, 16));
 
         JTextArea output = new JTextArea();
-        output.setFont(new Font("Monospaced", Font.BOLD, 20)); // 🔥 BIG FONT
+        output.setFont(new Font("Monospaced", Font.BOLD, 20)); 
         output.setLineWrap(true);
         output.setWrapStyleWord(true);
 
@@ -39,12 +39,12 @@ public class CrawlerUI {
         frame.add(imgBtn);
         frame.add(scroll);
 
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); // full screen
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         frame.setLayout(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // 🔥 SHOW LINKS BUTTON
+        
         linkBtn.addActionListener(e -> {
 
             String url = urlField.getText();
@@ -56,7 +56,7 @@ public class CrawlerUI {
                 try {
                     ManageQ crawler = new ManageQ();
 
-                    // start crawler
+            
                     new Thread(() -> {
                         try {
                             crawler.startCrawlingFromGUI(url, 1);
@@ -65,7 +65,7 @@ public class CrawlerUI {
                         }
                     }).start();
 
-                    // 🔥 LIVE UPDATE LOOP
+            
                     while (true) {
 
                         StringBuilder sb = new StringBuilder();
@@ -88,7 +88,7 @@ public class CrawlerUI {
             }).start();
         });
 
-        // 🔥 DOWNLOAD IMAGES BUTTON
+       
         imgBtn.addActionListener(e -> {
 
             String url = urlField.getText();
@@ -108,7 +108,7 @@ public class CrawlerUI {
                         }
                     }).start();
 
-                    // 🔥 LIVE COUNT UPDATE
+                    
                     while (true) {
 
                         int count = ResultStore.imageCount.get();
